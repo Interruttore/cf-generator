@@ -8,6 +8,31 @@ body {
   min-height: 100vh;
 }
 
+nav a {
+  color: white;
+  text-decoration: none;
+}
+nav a:hover {
+  color: #00a7e1;
+}
+
+nav button {
+  color: white !important;
+}
+
+.about {
+  color: white;
+}
+
+.about a {
+  color: #00a7e1;
+  text-decoration: none;
+}
+
+.about a:hover {
+  text-decoration: underline;
+}
+
 .container {
   max-width: 80%;
 }
@@ -38,10 +63,6 @@ footer {
   margin-top: 10%;
   height: 60px;
   color: white;
-}
-
-footer a {
-  color: #00a7e1;
 }
 
 h1 {

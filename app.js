@@ -18,14 +18,24 @@ function getConsonant(string){
     return consonant;
 }
 
-function getCode(comune){
-    console.log(comune);
+
+
+function getComune(search){
     return comuniData.filter(
         function (comuniData) {
-            return comuniData.nome == comune;
+            return comuniData.nome == search || comuniData.codice == search;
         }
     )
 }
+
+function getStateCode(state){
+    return statiData.filter(
+        function(statiData){
+            return statiData.nome == state;
+        }
+    )
+}
+
 
 function addLastName(lastName){
     let temp = "";
@@ -71,14 +81,13 @@ function addFirstName(firstName){
 
 function addBirthDate(birthDate, gender){
     let temp = "";
-    console.log(birthDate);
     temp += birthDate.getYear();
     temp += monthDictionary[birthDate.getMonth()];
     date = birthDate.getDate();
-    if(gender == "f"){
+    if(gender === "f"){
         temp += date + 40;
-    }else if(date < 2){
-        temp += "0" + date; 
+    }else if( Math.max(Math.floor(Math.log10(Math.abs(date))), 0) + 1 < 2){
+        temp += "0" + date;
     }else{
         temp += date;
     }
@@ -89,9 +98,17 @@ function addBirthDate(birthDate, gender){
 function addComuneCode(comune){
     let temp = "";
     if(comune != null){
-        code = getCode(comune);
+        let code = getComune(comune);
+        console.log(code);
         temp += code[0].codice;
     }
+    return temp;
+}
+
+function addStateCode(state){
+    let temp = "";
+    let code = getStateCode(state);
+    temp +=  "Z" + code[0].codice;    
     return temp;
 }
 
@@ -129,30 +146,37 @@ function fillLists(){
     }
 }
 
+
 $(document).ready( function() {
     
     fillLists();
    
     $("form").submit(function(event){
+        cf = "";
         event.preventDefault();
-        values = $("form").serializeArray();
+        document.getElementById("cf").innerHTML= "";
+        let values = $("form").serializeArray();
+        console.log(values);
+
         let firstName = values[0].value.toLowerCase();
         let lastName = values[1].value.toLowerCase();
         let date = new Date(values[2].value);
         let gender = values[3].value.toLowerCase();
         let comune = values[4].value;
-        let stato = values[5].value;
-        console.log(firstName, lastName, date, gender, comune);
-
+        let state = values[5].value;
 
         
         cf += addLastName(lastName,lastName);
         cf += addFirstName(firstName,lastName);
-        
-        cf += addBirthDate(date);
-        cf += addComuneCode(comune);
+        cf += addBirthDate(date, gender);
+        if(comune != ""){
+            cf += addComuneCode(comune);
+        }else{
+            cf += addStateCode(state);
+        }
         cf += addControlCode(cf);
         document.getElementById("cf").innerHTML = cf.toUpperCase();
+        
         
     });
 
@@ -172,6 +196,27 @@ function copyToClipboard(element) {
                     .attr("title","Copiato!")
                     .tooltip('toggle');   
 }
+
+function calcoloInverso(cf){
+    //PTRNDR97P11D969U
+    let gender;
+    let birthDate = cf.slice(9,11);
+    let month = cf.slice(8,9);
+    console.log(month.toLowerCase());
+    month = monthDictionary.indexOf(month.toLowerCase()) + 1;
+    if(birthDate > 40){
+        gender = "f"
+    }else{
+        gender = "m"
+    }
+    let year = cf.slice(6,8);
+    let comune = cf.slice(11,15);
+    comune = getComune(comune)[0].nome;
+    
+    console.log(gender,birthDate,month,year,comune);
+
+}
+
 
 
 

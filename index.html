@@ -23,6 +23,11 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body class="d-flex flex-column">
+    <nav id="topNav" class="nav navbar-expand-lg navbar-dark bg-dark">
+      <a href="/" class="nav-link">CF Calcolatore</a>
+      <a href="/inverso.html" class="nav-link">CF Inverso</a>
+      <a href="/about.html" class="nav-link">Informazioni</a>
+    </nav>
     <h1>Generatore codice fiscale</h1>
     <main class="container flex-fill">
       <form id="cfForm">
@@ -84,7 +89,6 @@
               <input
                 name="comune"
                 id="comune"
-                required
                 class="form-control"
                 list="comuneListOptions"
                 placeholder="Seleziona un comune"
@@ -98,7 +102,7 @@
           </div>
 
           <div class="col-md-4 col-sm-12">
-            <div class="form-floating mb-3">
+            <div class="form-floating input-group mb-3">
               <input
                 name="sato"
                 id="stato"
@@ -109,6 +113,17 @@
               />
               <datalist id="statoListOptions"> </datalist>
               <label for="stato">Stato di nascita:</label>
+              <span class="input-group-text"
+                ><i
+                  class="bi bi-info-circle"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="bottom"
+                  title="Per i nati al di fuori del territorio italiano, sia che si 
+                tratti di cittadini stranieri nati all'estero oppure nati in Italia ma di 
+                origine straniera, sia di cittadini italiani nati all'estero, si considera lo stato 
+                estero di nascita."
+                ></i
+              ></span>
             </div>
           </div>
 
@@ -141,21 +156,6 @@
         </div>
       </div>
     </main>
-
-    <footer class="footer">
-      <div class="container">
-        <h5>Informazioni</h5>
-        <p>
-          Questo sito non invia nè memorizza nessuna informazione. Il calcolo
-          del codice fiscale viene effettuato in Javascript in locale. Tutte le
-          informazioni richieste sono necessarie per calcolare il codice
-          fiscale. Maggiori informazioni su come viene effettuato il calcolo:
-          <a href="https://it.wikipedia.org/wiki/Codice_fiscale" target="_blank"
-            >Codice Fiscale Wikipedia</a
-          >
-        </p>
-      </div>
-    </footer>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
