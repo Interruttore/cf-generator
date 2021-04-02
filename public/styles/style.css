@@ -48,6 +48,11 @@ nav button {
   color: #fff;
 }
 
+.reverse-info a {
+  color: #00a7e1;
+  text-decoration: none;
+}
+
 .reverse-item{
   margin-left: 0.3em;
 }
