@@ -43,6 +43,15 @@ nav button {
   text-decoration: underline;
 }
 
+.reverse-info{
+  margin-top: 6%;
+  color: #fff;
+}
+
+.reverse-item{
+  margin-left: 0.3em;
+}
+
 .container {
   max-width: 80%;
 }

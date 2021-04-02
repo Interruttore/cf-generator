@@ -1,3 +1,4 @@
+/* eslint-disable max-statements */
 /* eslint-disable max-lines */
 
 
@@ -320,25 +321,33 @@ const copyToClipboard = function(element) {
                     .tooltip('toggle');   
 }
 
-// eslint-disable-next-line no-unused-vars
-/*
- *Da fare
- *const calcoloInverso = function(cf){
- *  let gender = "";
- *  const birthDate = cf.slice(9,11);
- *  let month = cf.slice(8,9);
- *  month = monthDictionary.indexOf(month.toLowerCase()) + 1;
- *  if(birthDate > 40){
- *      gender = "f"
- *  }else{
- *      gender = "m"
- *  }
- *  let year = cf.slice(6,8);
- *  let comune = cf.slice(11,15);
- *  comune = getComune(comune)[0].nome;
- *}
- */
+
+ 
+
+// eslint-disable-next-line no-unused-vars 
+const calcoloInverso = function(){
+    const cf = document.getElementById("codiceFiscaleInput").value;
+    let gender = "";
+    let birthDate = cf.slice(9,11);
+    let month = cf.slice(8,9);
+    month = monthDictionary.indexOf(month.toLowerCase()) + 1;
+    if(birthDate > 40){
+        gender = "f"
+    }else{
+        gender = "m"
+    }
+    const year = cf.slice(6,8);
+    let comune = cf.slice(11,15);
+    comune = getComune(comune)[0].nome;
+    birthDate = `0${birthDate}`.slice(-2);
+    month = `0${month}`.slice(-2);
+    const birth = `${birthDate}/${month}/${year}`
+    document.getElementById("comuneSpan").innerHTML = comune;
+    document.getElementById("birthdaySpan").innerHTML = birth;
+    document.getElementById("genderSpan").innerHTML = gender.toUpperCase();
+}
 
 
+document.getElementById("reverseButton").addEventListener("click", calcoloInverso);
 
 
