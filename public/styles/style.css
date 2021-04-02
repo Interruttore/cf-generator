@@ -48,6 +48,17 @@ nav button {
   color: #fff;
 }
 
+.footer{
+  font-size: 0.9em;
+  height: auto;
+  padding: 10px 0 0 25px !important;
+  
+}
+
+.footer p{
+  margin-bottom: 0px;
+}
+
 .reverse-info a {
   color: #00a7e1;
   text-decoration: none;
