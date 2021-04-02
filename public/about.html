@@ -39,6 +39,11 @@
             le informazioni richieste sono necessarie per calcolare il codice
             fiscale.
           </p>
+          <p>
+            Poichè l'algoritmo del calcolo non è in grado di garantirne
+            l'univocità solo l'Agenzia delle Entrate può risolvere il problema e
+            quindi rilasciare un codice fiscale valido.
+          </p>
         </div>
       </div>
       <div class="row mt-5">
@@ -49,8 +54,10 @@
             generazione di codici identici per persone fisiche diverse. Si parla
             in questo caso di omocodia del codice fiscale. L'Agenzia delle
             Entrate provvede ad attribuire a ciascuna persona un nuovo codice in
-            modo da garantire l'unicità dello stesso. Il codice fiscale italiano
-            (TIN-IT) è un codice, ispirato dall'uso
+            modo da garantire l'unicità dello stesso.
+          </p>
+          <p>
+            Il codice fiscale italiano (TIN-IT) è un codice, ispirato dall'uso
             <a href="https://it.wikipedia.org/wiki/Biblioteconomia">
               biblioteconomico</a
             >, che serve a identificare in modo univoco le persone fisiche e
@@ -65,10 +72,15 @@
         <div class="col">
           <h5>Informazioni sul calcolo</h5>
           <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid
-            labore atque quisquam, tempora animi modi veritatis minima sit quo
-            exercitationem laudantium laboriosam provident nisi qui commodi
-            aspernatur deleniti odio architecto.
+            Viene calcolato in questo modo:
+            <ol>
+              <li>Prime tre consonanti del cognome</li>
+              <li>Prime tre consonanti del nome</li>
+              <li>Data di nascita, per il mese si una lettera, per il giorno si aggiunge 40 in caso di sesso femminile</li>
+              <li>Comune di nascita, si usa un codice</li>
+              <li>Codice di controllo finale</li>
+            </ol>
+            Ulteriori informazioni sul calcolo:
             <a
               href="https://it.wikipedia.org/wiki/Codice_fiscale#Generazione_del_codice_fiscale"
               target="_blank"
