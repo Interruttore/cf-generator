@@ -333,6 +333,7 @@ const calcoloInverso = function(){
     month = monthDictionary.indexOf(month.toLowerCase()) + 1;
     if(birthDate > 40){
         gender = "f"
+        birthDate -= 40;
     }else{
         gender = "m"
     }
@@ -345,6 +346,7 @@ const calcoloInverso = function(){
     document.getElementById("comuneSpan").innerHTML = comune;
     document.getElementById("birthdaySpan").innerHTML = birth;
     document.getElementById("genderSpan").innerHTML = gender.toUpperCase();
+    document.getElementById("reverseInfo").classList.remove("hidden");
 }
 
 

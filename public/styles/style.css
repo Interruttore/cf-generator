@@ -52,6 +52,10 @@ nav button {
   margin-left: 0.3em;
 }
 
+.hidden{
+  display: none;
+}
+
 .container {
   max-width: 80%;
 }
