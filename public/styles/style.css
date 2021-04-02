@@ -9,11 +9,17 @@ body {
 }
 
 nav a {
-  color: white;
-  text-decoration: none;
+  color: white !important;
 }
 nav a:hover {
-  color: #00a7e1;
+  color: #00a7e1 !important;
+}
+nav .active{
+  text-decoration: underline !important;
+}
+
+nav img{
+  max-width: 70%;
 }
 
 nav button {
