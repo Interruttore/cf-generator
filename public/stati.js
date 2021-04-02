@@ -1,4 +1,6 @@
-statiData = [
+/* eslint-disable max-lines */
+// eslint-disable-next-line no-unused-vars
+const statiData = [
   {
     "codice": 100,
     "nome": "Italia"
