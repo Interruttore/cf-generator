@@ -12,7 +12,7 @@
     "url": "git+https://github.com/Interruttore/cfgenerator.git"
   },
   "author": "Andrea Pietronave",
-  "license": "ISC",
+  "license": "Mozilla Public License 2.0",
   "bugs": {
     "url": "https://github.com/Interruttore/cfgenerator/issues"
   },

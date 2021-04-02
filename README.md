@@ -18,4 +18,4 @@ More information about the fiscal code on [wikipedia](https://it.wikipedia.org/w
 
 ## License
 
-MIT License
+Mozilla Public License 2.0
