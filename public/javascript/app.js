@@ -134,8 +134,6 @@ const getConsonant = function(string){
     return consonant;
 }
 
-
-
 const getComune = function(search){
     // eslint-disable-next-line no-undef
     return comuniData.filter(function (comuniData) {
@@ -143,11 +141,10 @@ const getComune = function(search){
         })
 }
 
-const getStateCode = function(state){
-    
+const getState = function(search){
     // eslint-disable-next-line no-undef
     return statiData.filter(function(statiData){
-            return statiData.nome === state;
+            return statiData.nome === search || statiData.codice === search;
         })
 }
 
@@ -222,7 +219,7 @@ const addComuneCode = function(comune){
 
 const addStateCode = function(state){
     let temp = "";
-    const code = getStateCode(state);
+    const code = getState(state);
     temp += `Z${code[0].codice}`
     return temp;
 }
@@ -327,9 +324,11 @@ const copyToClipboard = function(element) {
 // eslint-disable-next-line no-unused-vars 
 const calcoloInverso = function(){
     const cf = document.getElementById("codiceFiscaleInput").value;
-    let gender = "";
+    const year = cf.slice(6,8);
+    const comuneOrState = cf.slice(11,15);
     let birthDate = cf.slice(9,11);
     let month = cf.slice(8,9);
+    let gender = "";
     month = monthDictionary.indexOf(month.toLowerCase()) + 1;
     if(birthDate > 40){
         gender = "f"
@@ -337,19 +336,24 @@ const calcoloInverso = function(){
     }else{
         gender = "m"
     }
-    const year = cf.slice(6,8);
-    let comune = cf.slice(11,15);
-    comune = getComune(comune)[0].nome;
     birthDate = `0${birthDate}`.slice(-2);
     month = `0${month}`.slice(-2);
     const birth = `${birthDate}/${month}/${year}`
-    document.getElementById("comuneSpan").innerHTML = comune;
+    if(comuneOrState.toLowerCase().startsWith("z")){
+        const state = getState(parseInt(comuneOrState.slice(1), 10))[0].nome;
+        document.getElementById("comuneSpan").innerHTML = state;
+    }else{
+        const comune = getComune(comuneOrState)[0].nome;
+        document.getElementById("comuneSpan").innerHTML = comune;
+    }
+
     document.getElementById("birthdaySpan").innerHTML = birth;
     document.getElementById("genderSpan").innerHTML = gender.toUpperCase();
     document.getElementById("reverseInfo").classList.remove("hidden");
 }
 
-
-document.getElementById("reverseButton").addEventListener("click", calcoloInverso);
+if(document.getElementById("reverseButton") !== null){
+    document.getElementById("reverseButton").addEventListener("click", calcoloInverso);
+}
 
 
