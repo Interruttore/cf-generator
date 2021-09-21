@@ -1,6 +1,6 @@
 # CF Generator
 
-### [Link to site](https://generatorecf.herokuapp.com/)
+### [Link to site](https://cf-generator.herokuapp.com/)
 
 ## Description
 
