@@ -151,8 +151,8 @@ const getState = function(search){
 // eslint-disable-next-line max-statements
 const addLastName = function(lastName){
     let temp = "";
-    const lastNameVowels = getVowels(lastName);
-    const lastNameConsonants = getConsonant(lastName);
+    const lastNameVowels = getVowels(lastName.replace(/\s/g, ''));
+    const lastNameConsonants = getConsonant(lastName.replace(/\s/g, ''));
     if(lastNameConsonants.length >= 3){
         temp += lastNameConsonants;
     }else{
@@ -170,8 +170,8 @@ const addLastName = function(lastName){
 // eslint-disable-next-line max-statements
 const addFirstName = function(firstName){
     let temp = "";
-    const firstNameVowels = getVowels(firstName);
-    const firstNameConsonants = getConsonant(firstName);
+    const firstNameVowels = getVowels(firstName.replace(/\s/g, ''));
+    const firstNameConsonants = getConsonant(firstName.replace(/\s/g, ''));
     if(firstNameConsonants.length >= 3){
         if(firstNameConsonants.length >= 4){
             temp += firstNameConsonants[0];
